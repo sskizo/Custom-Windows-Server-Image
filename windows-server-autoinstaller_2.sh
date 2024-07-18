@@ -3,9 +3,9 @@
 # Function to display menu and get user choice
 display_menu() {
     echo "Please select the Windows Server version:"
-    echo "1. Windows Server 2016"
+    echo "1. Windows Server 2008"
     echo "2. Windows Server 2019"
-    echo "3. Windows Server 2022"
+    echo "3. Windows Server 2025"
     read -p "Enter your choice: " choice
 }
 
@@ -26,10 +26,10 @@ display_menu
 
 case $choice in
     1)
-        # Windows Server 2016
-        img_file="windows2016.img"
-        iso_link="https://go.microsoft.com/fwlink/p/?LinkID=2195174&clcid=0x409&culture=en-us&country=US"
-        iso_file="windows2016.iso"
+        # Windows Server 2008
+        img_file="windows2008.img"
+        iso_link="https://drive.massgrave.dev/en_windows_server_2008_r2_with_sp1_x64_dvd_617601.iso"
+        iso_file="windows2008.iso"
         ;;
     2)
         # Windows Server 2019
@@ -38,10 +38,10 @@ case $choice in
         iso_file="windows2019.iso"
         ;;
     3)
-        # Windows Server 2022
-        img_file="windows2022.img"
-        iso_link="https://go.microsoft.com/fwlink/p/?LinkID=2195280&clcid=0x409&culture=en-us&country=US"
-        iso_file="windows2022.iso"
+        # Windows Server 2025
+        img_file="windows2025.img"
+        iso_link="https://go.microsoft.com/fwlink/p/?LinkID=2268694&clcid=0x409&culture=en-us&country=us"
+        iso_file="windows2025.iso"
         ;;
     *)
         echo "Invalid choice. Exiting."
