@@ -3,9 +3,11 @@
 # Function to display menu and get user choice
 display_menu() {
     echo "Please select the Windows Server version:"
-    echo "1. Windows Server 2016"
-    echo "2. Windows Server 2019"
-    echo "3. Windows Server 2022"
+	echo "1. Windows Server 2008R2"
+    echo "2. Windows Server 2016"
+    echo "3. Windows Server 2019"
+    echo "4. Windows Server 2022"
+	echo "5. Windows Server 2025"
     read -p "Enter your choice: " choice
 }
 
@@ -26,22 +28,34 @@ display_menu
 
 case $choice in
     1)
+        # Windows Server 2008R2
+        img_file="windows2008r2.img"
+        iso_link="https://drive.massgrave.dev/en_windows_server_2008_r2_with_sp1_x64_dvd_617601.iso"
+        iso_file="windows2008r2.iso"
+        ;;
+	2)
         # Windows Server 2016
         img_file="windows2016.img"
         iso_link="https://go.microsoft.com/fwlink/p/?LinkID=2195174&clcid=0x409&culture=en-us&country=US"
         iso_file="windows2016.iso"
         ;;
-    2)
+    3)
         # Windows Server 2019
         img_file="windows2019.img"
         iso_link="https://go.microsoft.com/fwlink/p/?LinkID=2195167&clcid=0x409&culture=en-us&country=US"
         iso_file="windows2019.iso"
         ;;
-    3)
+    4)
         # Windows Server 2022
         img_file="windows2022.img"
         iso_link="https://go.microsoft.com/fwlink/p/?LinkID=2195280&clcid=0x409&culture=en-us&country=US"
         iso_file="windows2022.iso"
+        ;;
+	5)
+        # Windows Server 2025
+        img_file="windows2025.img"
+        iso_link="https://go.microsoft.com/fwlink/p/?LinkID=2268694&clcid=0x409&culture=en-us&country=us"
+        iso_file="windows2025.iso"
         ;;
     *)
         echo "Invalid choice. Exiting."
@@ -57,7 +71,7 @@ qemu-img create -f raw "$img_file" 30G
 echo "Image file $img_file created successfully."
 
 # Download Virtio driver ISO
-wget -O virtio-win.iso 'https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/archive-virtio/virtio-win-0.1.215-1/virtio-win-0.1.215.iso'
+wget -O virtio-win.iso 'https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/archive-virtio/virtio-win-0.1.240-1/virtio-win-0.1.240.iso'
 
 echo "Virtio driver ISO downloaded successfully."
 
